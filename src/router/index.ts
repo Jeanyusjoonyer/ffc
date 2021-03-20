@@ -28,6 +28,11 @@ const routes: Array<RouteConfig> = [
     component: () => import('../views/ThirdPartyDecks.vue'),
   },
   {
+    path: '/markdown-editor',
+    name: 'Create a new Deck',
+    component: () => import('../views/CreateDeckEditor.vue'),
+  },
+  {
     path: '/settings',
     name: 'Settings',
     component: () => import('../views/Settings.vue'),

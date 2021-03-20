@@ -3,7 +3,7 @@
     <v-card height="100%" raised>
       <v-card-title>Deck Creator</v-card-title>
       <v-card-text>
-        <p>You will be able to natively create a new deck here.</p>
+        <v-btn color="indigo" right @click="$router.push('markdown-editor')">Create Deck</v-btn>
       </v-card-text>
     </v-card>
   </v-col>
@@ -14,7 +14,9 @@ import Vue from "vue";
 import Component from "vue-class-component";
 
 @Component
-export default class DeckCreator extends Vue {}
+export default class DeckCreator extends Vue {
+}
+
 </script>
 
 <style scoped>
