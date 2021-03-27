@@ -3,7 +3,7 @@
     <v-card height="100%" raised>
       <v-card-title>Deck Creator</v-card-title>
       <v-card-text>
-        <v-btn color="indigo" right @click="$router.push('markdown-editor')">Create Deck</v-btn>
+        <v-btn color="indigo" right @click="$router.push('deck-editor')">Create Deck</v-btn>
       </v-card-text>
     </v-card>
   </v-col>

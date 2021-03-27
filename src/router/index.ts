@@ -33,6 +33,16 @@ const routes: Array<RouteConfig> = [
     component: () => import('../views/CreateDeckEditor.vue'),
   },
   {
+    path: '/deck-editor',
+    name: 'Create a new Deck',
+    component: () => import('../views/CreateDeckEditor.vue'),
+  },
+  {
+    path: '/card-editor',
+    name: 'Create a new Card ',
+    component: () => import('../views/CardEditor.vue'),
+  },
+  {
     path: '/settings',
     name: 'Settings',
     component: () => import('../views/Settings.vue'),

@@ -1,6 +1,6 @@
 <template>
-    <div class="EditNewDeckComponent">
-          <EditnewDeckComponent />
+    <div class="CreateCard">
+          <CreateCardComponent />
     </div>
 </template>
 
@@ -10,12 +10,12 @@ import Component from "vue-class-component";
 
 
 
-import EditnewDeckComponent from "../components/addnewdeck/editDecks/CreateDeckEditor.vue";
+import CreateCardComponent from "../components/addnewdeck/editDecks/CreateCards.vue";
 
 
 @Component({
   components: {
-    EditnewDeckComponent
+    CreateCardComponent
   }
 })
 export default class DeckEditor extends Vue {}

@@ -1,3 +1,4 @@
+<!-- THIS COMPONENT IS NOT USED YET -->
 <template>
     <div class="container">
         <markdown-editor theme="success"></markdown-editor>
