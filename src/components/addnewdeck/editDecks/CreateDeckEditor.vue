@@ -7,16 +7,37 @@
       <v-card-text>
           <b-form-textarea
             id="textarea"
-            v-model="text"
+            v-model="deckname"
             placeholder="Enter Deck Name"
           ></b-form-textarea>
-         <pre class="mt-3 mb-0">Name of Deck: <br>{{ text }}</pre> 
+        <!-- <pre class="mt-3 mb-0">Name of Deck: <br>{{ text }}</pre> -->
       </v-card-text>
-      <v-card-actions class="button-padding">
-        <v-spacer></v-spacer>
-        <v-btn color="indigo" right @click="$router.push('card-editor')">Continue</v-btn>
-      </v-card-actions>
+
+     
     </v-card>
+
+     <!-- Set name of Deck in a Card. -->
+    <v-card class="Vcard" height="100%" raised>
+      <v-card-title>Set Author</v-card-title>
+      <v-card-text>
+          <b-form-textarea
+            id="textarea"
+            v-model="author"
+            placeholder="Enter your name"
+          ></b-form-textarea>
+        <!-- <pre class="mt-3 mb-0">Name of Deck: <br>{{ text }}</pre> -->
+      </v-card-text>
+    </v-card>
+
+    <v-card class="Vcard" height="100%" raised>       
+      <v-card-actions class="button-padding">
+          <v-spacer></v-spacer>
+          <v-btn color="indigo" right @click="createDeck(deckname, author)">Save</v-btn>
+          <v-btn color="indigo" right @click="$router.push('card-editor')">Continue</v-btn>
+        </v-card-actions>
+    </v-card>
+
+
 
   </v-col>
 
@@ -30,6 +51,7 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { FormTextareaPlugin } from 'bootstrap-vue'
 Vue.use(FormTextareaPlugin)
+import router from "@/router"
 
 import MarkdownEditor from "./MarkdownEditor.vue"
 
@@ -39,11 +61,21 @@ import MarkdownEditor from "./MarkdownEditor.vue"
     }
 })
 export default class DeckEditor extends Vue {
+
+  createDeck (deckname: string, author: string){
+    //Create a new JSON file here with the deckname and author
+    console.log("Deckname: " + deckname + " Author: " + author);
+    router.push('card-editor');
+  }
+
   data(){
     return{
-      text:'',
+      deckname:'',
+      author:'',
     }
   }
+
+
 }
 
 

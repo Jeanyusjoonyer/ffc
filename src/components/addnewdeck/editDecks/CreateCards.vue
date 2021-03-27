@@ -2,15 +2,20 @@
      
   <v-col cols="12" sm="12" md="12" lg="12" xl="12">
     <!-- Set front side of the Card -->
+    <v-form id="cards" ref="form">
       <v-card class="Vcard" height="100%" raised>
         <v-card-title>Question</v-card-title>
         <v-card-text>
-            <b-form-textarea
+            <!--<input id="questionarea" type="textarea" placeholder="Enter your question">
+            -->
+            <v-textarea
               id="questionarea"
+              ref="questionIn"
               v-model="question"
-              placeholder="Enter the front side of your Card"
-            ></b-form-textarea>
-          <p>Question Preview: <br>{{ question }}</p>
+              form="card"
+              placeholder="Enter your question"
+            ></v-textarea>
+          <!--<p>Question Preview: <br>{{ question }}</p>-->
         </v-card-text>
       </v-card>
 
@@ -18,20 +23,22 @@
       <v-card class="Vcard" height="100%" raised>
         <v-card-title>Answer</v-card-title>
         <v-card-text>
-            <b-form-textarea
-              id="questionarea"
-              v-model="question"
-              placeholder="Enter the front side of your Card"
-            ></b-form-textarea>
-          <p>Answer Preview: <br>{{ question }}</p>
+            <v-textarea
+              id="answerarea"
+              ref="answerIn"
+              form="deck"
+              v-model="answer"
+              placeholder="Enter the answer to your question"
+            ></v-textarea>
+          <!--<p>Answer Preview: <br>{{ answer }}</p>-->
         </v-card-text>
       </v-card>
-
+    </v-form>
     <v-card class="Vcard" height="100%" raised>
        <v-card-actions class="button-padding">
           <v-spacer></v-spacer>
-          <v-btn color="indigo" right @click="$router.push('create-card')">Create Next Card</v-btn>
-          <v-btn color="indigo" right @click="$router.push('learn')">Save & Done</v-btn>
+          <v-btn color="indigo" type="submit" right @click="createDeck(question, answer)">Create Next Card</v-btn>
+          <v-btn color="indigo" right @click="$router.push('learn')">Save</v-btn>
         </v-card-actions>
     </v-card>
 
@@ -44,7 +51,9 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { FormTextareaPlugin } from 'bootstrap-vue'
-Vue.use(FormTextareaPlugin)
+Vue.use(FormTextareaPlugin);
+//import router from "@/router"
+
 
 @Component({
     components:{
@@ -83,9 +92,22 @@ export default class CardEditor extends Vue {
 data(){
     return{
       question:'',
+      answer:'',
+
     }
   }
+
+
+createDeck(question: string, answer: string){
+    console.log("Quesion: \n" + question + "\nAnswer: \n" + answer);
+    // TODO: Cleat fields!
+    
 }
+
+
+}
+
+
 
 
 </script>
@@ -97,6 +119,14 @@ data(){
     color: lightgray;
   }
   #questionarea{
+    border-color: lightgray;
+    scroll-behavior: smooth;
+    width: 96%;
+    margin: 1%;
+    color: lightgray;
+    height: 3em;
+  }
+   #answerarea{
     width: 96%;
     margin: 1%;
     color: lightgray;
